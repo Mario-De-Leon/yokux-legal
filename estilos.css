@@ -1,0 +1,124 @@
+/* Colores tomados de las piezas graficas de YOKUX (pagina de Facebook). */
+:root {
+  --marino: #003064;
+  --marino-oscuro: #0e1f38;
+  --turquesa: #00e4c4;
+  --verde: #1cc4a0;
+  --violeta: #685cfc;
+  --texto: #2b3a4a;
+  --suave: #5f6f80;
+  --fondo: #f4f8fb;
+  --borde: #e3eaf1;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: "Poppins", -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  color: var(--texto);
+  background: var(--fondo);
+  line-height: 1.7;
+  font-size: 16px;
+}
+
+a { color: var(--marino); font-weight: 600; text-decoration-color: var(--turquesa); text-underline-offset: 3px; }
+a:hover { color: var(--violeta); }
+
+/* --- Encabezado ------------------------------------------------------- */
+.encabezado {
+  background: linear-gradient(135deg, var(--marino-oscuro) 0%, var(--marino) 55%, #0a4f7a 100%);
+  color: #fff;
+  padding: 28px 20px 88px;
+  position: relative;
+  overflow: hidden;
+}
+.encabezado::after {           /* puntos decorativos, como en sus piezas */
+  content: "";
+  position: absolute; right: -20px; bottom: -20px; width: 260px; height: 180px;
+  background-image: radial-gradient(rgba(0, 228, 196, .45) 2px, transparent 2.5px);
+  background-size: 16px 16px;
+  opacity: .6;
+}
+.encabezado .contenido { max-width: 820px; margin: 0 auto; position: relative; z-index: 1; }
+
+.logo {
+  display: inline-flex; flex-direction: column; align-items: flex-start;
+  background: #fff; border-radius: 14px; padding: 10px 18px 8px;
+  text-decoration: none; box-shadow: 0 6px 18px rgba(0, 0, 0, .18);
+}
+.logo .marca { font-size: 30px; font-weight: 800; letter-spacing: -1px; line-height: 1; color: var(--marino-oscuro); }
+.logo .o { color: var(--turquesa); }
+.logo .u { color: var(--violeta); }
+.logo .lema { font-size: 11px; font-weight: 500; color: var(--marino-oscuro); letter-spacing: .3px; margin-top: 3px; }
+
+.encabezado h1 { font-size: clamp(1.8rem, 5vw, 2.6rem); line-height: 1.15; margin: 28px 0 10px; font-weight: 700; }
+.encabezado .bajada { margin: 0; color: rgba(255, 255, 255, .85); max-width: 620px; }
+.vigencia {
+  display: inline-block; margin-top: 18px; padding: 4px 14px; border-radius: 999px;
+  background: var(--verde); color: #fff; font-size: 13px; font-weight: 600;
+}
+
+/* --- Cuerpo ----------------------------------------------------------- */
+main { max-width: 820px; margin: -56px auto 0; padding: 0 20px 48px; position: relative; z-index: 2; }
+
+.tarjeta {
+  background: #fff; border: 1px solid var(--borde); border-radius: 16px;
+  padding: 24px 28px; margin-bottom: 16px;
+  box-shadow: 0 4px 16px rgba(0, 48, 100, .06);
+}
+.tarjeta h2 {
+  display: flex; align-items: center; gap: 12px;
+  font-size: 1.15rem; color: var(--marino); margin: 0 0 10px;
+}
+.numero {
+  flex: none; width: 32px; height: 32px; border-radius: 10px;
+  display: inline-flex; align-items: center; justify-content: center;
+  background: rgba(0, 228, 196, .16); color: var(--marino); font-size: .95rem; font-weight: 700;
+}
+.tarjeta p { margin: 0 0 10px; }
+.tarjeta p:last-child { margin-bottom: 0; }
+
+ul.lista { list-style: none; padding: 0; margin: 6px 0 0; }
+ul.lista li { position: relative; padding-left: 26px; margin-bottom: 6px; }
+ul.lista li::before {
+  content: ""; position: absolute; left: 4px; top: .7em; width: 9px; height: 9px;
+  border-radius: 50%; background: var(--verde);
+}
+
+.destacado {
+  border-left: 4px solid var(--verde); background: rgba(28, 196, 160, .08);
+  padding: 12px 16px; border-radius: 0 10px 10px 0; margin-top: 12px;
+}
+
+/* Pasos numerados (eliminacion de datos) */
+ol.pasos { list-style: none; counter-reset: paso; padding: 0; margin: 8px 0 0; }
+ol.pasos li { counter-increment: paso; position: relative; padding: 0 0 18px 52px; }
+ol.pasos li::before {
+  content: counter(paso); position: absolute; left: 0; top: -2px;
+  width: 36px; height: 36px; border-radius: 50%;
+  background: var(--marino); color: #fff; font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+}
+ol.pasos li:last-child { padding-bottom: 0; }
+
+.boton {
+  display: inline-block; margin-top: 6px; padding: 10px 20px; border-radius: 999px;
+  background: var(--verde); color: #fff; text-decoration: none; font-weight: 600;
+}
+.boton:hover { background: var(--marino); color: #fff; }
+
+/* Portada */
+.opciones { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+.opcion { display: block; text-decoration: none; color: inherit; font-weight: 400; transition: transform .15s, box-shadow .15s; }
+.opcion:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(0, 48, 100, .12); color: inherit; }
+.opcion h2 { margin-bottom: 6px; }
+
+/* --- Pie -------------------------------------------------------------- */
+footer { text-align: center; color: var(--suave); font-size: 14px; padding: 8px 20px 40px; }
+footer a { font-weight: 500; }
+
+@media (max-width: 560px) {
+  .tarjeta { padding: 20px; }
+  .encabezado { padding-bottom: 80px; }
+}
